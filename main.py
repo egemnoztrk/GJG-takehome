@@ -24,8 +24,5 @@ def data():
     return res
 
 
-
-
-
 if __name__ == "__main__":
     application.run(port=5500)
