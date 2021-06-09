@@ -1,8 +1,6 @@
 ## _Egemen Öztürk, GJG Front End _
 
 | GitHub | [Source Codes][git-repo-url] |
-| Page | [Sample Page][page-url] |
-
 - **Languages:** HTML/CSS, Javascript and Python
 - **Technologies:** AWS, MongoDB and Flask
 - **Plugins:** JQuery, Bootstrap, DataTable, ChartJS, Select2, DateRangePicker and iCheck
@@ -45,5 +43,3 @@ Example data on MongoDB
 ```
 
 [git-repo-url]: https://github.com/egemnoztrk/GJG-takehome
-
-[page-url]: https://www.egemengjg.online
