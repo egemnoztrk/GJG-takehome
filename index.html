@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Egemen Öztürk</title>
+    <link href="css/styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+    <link href="plugins/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+    <link rel="stylesheet" href="plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+</head>
+
+<body>
+    <div class="container" id="loading-page">
+        <h2 class="loading-text">
+            <div class="spinner-border text-light" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            Building Table and Graphic
+        </h2>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="main-title">Egemen Öztürk GJG-Front End Take Home</span>
+                    <a href="readme.html" class="readme" target="_blank">ReadMe</a>
+                    <a href="https://github.com/egemnoztrk/GJG-takehome" class="readme" target="_blank">GitHub</a>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="card-title">Filters</span>
+                    <div class="switcherContainer">
+                        <span class="switch-text">TABLE</span>
+                        <label class="switch ">
+                            <input type="checkbox" id="switch">
+                            <span class="slider round"></span>
+                        </label>
+                        <span class="switch-text">GRAPH</span>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-sm-1">
+                    <h5 class="checkbox-title">Columns</h5>
+                </div>
+                <div class="col-md-auto" id="column-checkboxes">
+                    <div class="form-group clearfix">
+                        <div class="icheck-primary d-inline checkboxes">
+                            <input type="checkbox" id="date" checked class="checkboxes-input">
+                            <label class="form-check-label" for="date">Date </label>
+                        </div>
+                        <div class="icheck-primary d-inline checkboxes">
+                            <input type="checkbox" id="app" class="checkboxes-input">
+                            <label class="form-check-label" for="app">App </label>
+                        </div>
+                        <div class="icheck-primary d-inline checkboxes">
+                            <input type="checkbox" id="platform" class="checkboxes-input">
+                            <label class="form-check-label" for="platform">Platform </label>
+                            </label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="impressions" checked>
+                            <label class="form-check-label" for="impressions">Impressions </label>
+                            </label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="clicks" checked>
+                            <label class="form-check-label" for="clicks">Clicks </label>
+                            </label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="installs" checked>
+                            <label class="form-check-label" for="installs">Installs </label>
+                            </label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="dau" checked>
+                            <label class="form-check-label" for="dau">Dau </label>
+                            </label>
+                        </div>
+                        <div class="icheck-primary d-inline">
+                            <input type="checkbox" id="revenue" checked>
+                            <label class="form-check-label" for="revenue">Revenue </label>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-auto">
+                    <h5 class="filter-text">Date:</h5>
+                </div>
+                <div class="col-md-auto">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input type="text" class="form-control float-right" id="dateSelector"
+                                value="05/01/2020 - 08/01/2020">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-auto">
+                    <h5 class="filter-text">Platform:</h5>
+                </div>
+                <div class="col-md-auto">
+                    <div class="form-group">
+                        <div class="select2-purple-platform">
+                            <select id="platformSelector" class="select2" multiple="multiple"
+                                data-placeholder="Select Platforms" data-dropdown-css-class="select2-purple">
+                                <option>IOS</option>
+                                <option>Android</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-auto">
+                    <h5 class="filter-text">App:</h5>
+                </div>
+                <div class="col-md-auto">
+                    <div class="select2-purple-app">
+                        <select id="appSelector" class="select2" multiple="multiple" data-placeholder="Select Apps"
+                            data-dropdown-css-class="select2-purple">
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <button type="button" class="btn btn-primary right_buttons_apply" id="filterTable">Apply</button>
+                    <button type="button" class="btn btn-warning right_buttons" id="resetTable">Reset</button>
+                </div>
+            </div>
+        </div>
+        <div class="card card-change" id="table-card">
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="table" class="table table-bordered table-striped">
+                        <thead id="all-datas-head">
+                            <tr>
+                                <th>Date</th>
+                                <th>App</th>
+                                <th>Platform</th>
+                                <th>Impressions</th>
+                                <th>Clicks</th>
+                                <th>Installs</th>
+                                <th>Dau</th>
+                                <th>Revenue</th>
+                            </tr>
+                        </thead>
+                        <tbody id="all-datas">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="card card-change" id="graph-card">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="chart" id="canvas-div">
+                        <canvas id="platformChart" width="702" height="500" class="chartjs-render-monitor"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="plugins/moment/moment.min.js"></script>
+    <script src="plugins/select2/js/select2.full.min.js"></script>
+    <script src="plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <script src="plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="plugins/jszip/jszip.min.js"></script>
+    <script src="plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script src="plugins/chart.js/Chart.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+</body>
+
+</html>

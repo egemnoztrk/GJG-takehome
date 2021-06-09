@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Egemen Öztürk</title>
+</head>
+
+<body>
+    <a href="index.html" onclick="window.close();">Go Back</a>
+    <textarea id="text-input" oninput="this.editor.update()" hidden>## _Egemen Öztürk, GJG Front End_
+
+            | GitHub | https://github.com/egemnoztrk/GJG-takehome |
+
+            - Languages: HTML/CSS, Javascript and Python
+            - Technologies: AWS, MongoDB and Flask
+            - Plugins: JQuery, Bootstrap, DataTable, ChartJS, Select2, DateRangePicker and iCheck
+
+            Extras
+
+            Tried to show my knowledge on AWS, Python and MongoDB:
+
+            - Created a cluster on MongoDB and Uploaded data set to MongoDB
+            - Coded a simple Python Flask backend server with RestAPI
+            - Created a Virtual Environment on AWS Elastic Beanstalk and run a Python server
+            - Build a static website on AWS S3 Bucket
+
+            Example data on MongoDB
+
+            {
+                "_id": {
+                    "$oid": "60c07794d7fa267cbae9d629"
+                },
+                "date": "2020-05-02",
+                "impressions": {
+                    "$numberInt": "529079"
+                },
+                "clicks": {
+                    "$numberInt": "54050"
+                },
+                "installs": {
+                    "$numberInt": "1400"
+                },
+                "dau": {
+                    "$numberInt": "3405"
+                },
+                "revenue": {
+                    "$numberInt": "6062"
+                },
+                "platform": "iOS",
+                "app": "Fun Race 3D"
+            }
+            </textarea>
+    <div id="preview"> </div>
+    <script src="node_modules/markdown/lib/markdown.js"></script>
+    <script>
+        function Editor(input, preview) {
+            this.update = function () {
+                preview.innerHTML = markdown.toHTML(input.value);
+            };
+            input.editor = this;
+            this.update();
+        }
+        var $ = function (id) {
+            return document.getElementById(id);
+        };
+        new Editor($("text-input"), $("preview"));
+    </script>
+</body>
+
+</html>
