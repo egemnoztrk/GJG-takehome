@@ -46,4 +46,4 @@ Example data on MongoDB
 
 [git-repo-url]: https://github.com/egemnoztrk/GJG-takehome
 
-[page]: https://www.egemengjg.online
+[page-url]: https://www.egemengjg.online
