@@ -10,14 +10,12 @@ $(function () {
         theme: 'bootstrap4'
     })
 
-	// Take data from MongoDB with Python(Flask-RestAPI Nodes) - Runs on AWS ElasticBean and MongoDB Atlas
 	const getData = async () => {
 		//Fetch URL
-		let url = `http://492readybe4go-env.eba-bt2jpjzi.eu-central-1.elasticbeanstalk.com/get_data`;
-		let response = await fetch(url, {
-			credentials: 'include',
-		});
+		let url = `https://recruitment-mock-data.gjg-ads.io/data`;
+		let response = await fetch(url);
 		let data = await response.json();
+		data=data["data"]
 		// Loop data
         var uniqueApps=[]
 		data.forEach((data) => {
@@ -121,6 +119,12 @@ $(function () {
 
 	//Graph draw function
 	const drawGraphs = (filteredData,shownColumns,hiddenColumns)=>{
+		console.log(filteredData)
+		filteredData.sort((function(index){
+			return function(a, b){
+				return (a[index] === b[index] ? 0 : (a[index] < b[index] ? -1 : 1));
+			};
+		})(0)); // 2 is the index
 		if(shownColumns==undefined)shownColumns=[0]
 		var tableData={}
 		var areaChartData = {labels:[],datasets:[]}
